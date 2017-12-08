@@ -6,13 +6,13 @@
 #    By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:52:36 by alucas-           #+#    #+#              #
-#    Updated: 2017/12/08 17:20:05 by alucas-          ###   ########.fr        #
+#    Updated: 2017/12/08 18:08:36 by alucas-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 CC = gcc
-CFLAGS = -Werror -Wextra -Wall -g3
+CFLAGS = -Werror -Wextra -Wall -g -fsanitize=address
 
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
@@ -21,7 +21,7 @@ INC_PATH = ./include/
 LNK_PATH = ./ $(3TH_PATH)
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
-3TH_NAME = ft ncurses
+3TH_NAME = ft mlx
 SRC_NAME = \
 	fdf.c
 
@@ -30,6 +30,7 @@ OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 INC = $(addprefix -I, $(INC_PATH) $(addprefix $(3TH_PATH), include/))
 LNK = $(addprefix -L, $(LNK_PATH))
 3TH = $(addprefix -l, $(3TH_NAME))
+ADT = -framework OpenGL -framework AppKit
 EXE = $(NAME)
 LIB =
 
@@ -41,7 +42,7 @@ $(LIB): 3th $(OBJ)
 	@printf  "%-25s\033[32m[✔]\033[0m\n" "$(NAME): lib"
 
 $(EXE): 3th $(OBJ)
-	@$(CC) $(CFLAGS) $(LNK) $(INC) $(OBJ) -o $(NAME) $(3TH)
+	@$(CC) $(CFLAGS) $(LNK) $(INC) $(OBJ) -o $(NAME) $(3TH) $(ADT)
 	@printf  "%-25s\033[32m[✔]\033[0m\n" "$(NAME): exe"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
