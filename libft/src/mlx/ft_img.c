@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 06:59:08 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/09 16:26:20 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/09 16:34:29 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ inline void		ft_ximg_dtor(t_ximg *self)
 
 inline void		ft_ximg_clear(t_ximg *self)
 {
-	ft_memset(self->li, 0x0000000, (self->endian * self->lisz) + (self->width * (self->bpp / 8)));
+	ft_memset(self->li, 0, (self->height * self->lisz) + (self->width * (self->bpp / 8)));
 }
 
 inline void		ft_ximg_draw(t_ximg *self, t_xwin *win, int x, int y)
