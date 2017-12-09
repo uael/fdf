@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 06:59:08 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/09 08:49:27 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/09 16:26:20 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ inline t_ximg	*ft_ximg(t_mlx *mlx, int width, int height)
 		mlx->err_hdl(mlx, MLX_ENIMG);
 		return (NULL);
 	}
-	if (!(img->li = mlx_get_data_addr(mlx->ptr, &img->bpp, &img->lisz,
+	if (!(img->li = mlx_get_data_addr(img->ptr, &img->bpp, &img->lisz,
 		&img->endian)))
 	{
 		mlx->err_hdl(mlx, MLX_EAIMG);
@@ -42,19 +42,18 @@ inline t_ximg	*ft_ximg(t_mlx *mlx, int width, int height)
 
 inline void		ft_ximg_dtor(t_ximg *self)
 {
-	mlx_destroy_window(self->mlx->ptr, self->ptr);
+	mlx_destroy_image(self->mlx->ptr, self->ptr);
 	FT_INIT(self, t_ximg);
 }
 
 inline void		ft_ximg_clear(t_ximg *self)
 {
-	(void)self;
-	//todo
+	ft_memset(self->li, 0x0000000, (self->endian * self->lisz) + (self->width * (self->bpp / 8)));
 }
 
 inline void		ft_ximg_draw(t_ximg *self, t_xwin *win, int x, int y)
 {
-	if (mlx_put_image_to_window(self->mlx, win->ptr, self->ptr, x, y))
+	if (!mlx_put_image_to_window(self->mlx->ptr, win->ptr, self->ptr, x, y))
 		self->mlx->err_hdl(self->mlx, MLX_EDRAW);
 }
 
@@ -62,5 +61,5 @@ inline void		ft_ximg_wdot(t_ximg *self, t_xdot d, int color)
 {
 	if (d.y >= self->height || d.x >= self->width || d.x < 0 || d.y < 0)
 		return ;
-	*((int *)self->li + (d.y * self->lisz) + (d.x * (self->bpp / 8))) = color;
+	*(int *)(self->li + (d.y * self->lisz) + (d.x * (self->bpp / 8))) = color;
 }

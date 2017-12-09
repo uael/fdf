@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 06:59:08 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/09 08:23:01 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/09 16:03:05 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ extern t_xwin	*ft_xwin(t_mlx *mlx, int w, int h, char *n)
 
 extern void		ft_xwin_dtor(t_xwin *self)
 {
-	mlx_destroy_window(self->mlx, self->ptr);
+	mlx_destroy_window(self->mlx->ptr, self->ptr);
 	FT_INIT(self, t_xwin);
 }
 
 extern void		ft_xwin_clear(t_xwin *self)
 {
-	if (mlx_clear_window(self->mlx->ptr, self->ptr))
+	if (!mlx_clear_window(self->mlx->ptr, self->ptr))
 		self->mlx->err_hdl(self, MLX_ECWIN);
 }

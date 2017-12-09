@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 17:19:00 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/09 08:59:44 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/09 16:33:16 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,17 @@ static int	fdf_err_hdl(t_mlx *mlx, int code)
 	exit(code);
 }
 
+static int g_i = 0;
+static int g_j = 0;
+
 static int	fdf_key(int key, t_fdf *fdf)
 {
 	if (key == X_KEY_ESC)
 		return (fdf_err_hdl(&fdf->mlx, 0));
-	ft_xwin_clear(fdf->win);
-	ft_ximg_wli(fdf->img, ft_xli(ft_xdot(21, 42), ft_xdot(21, 42)), 0x0FFFFFF);
+	ft_ximg_clear(fdf->img);
+	ft_ximg_wdot(fdf->img, ft_xdot(g_i += 10, g_j += 10), 0x0FFFFFF);
+	ft_ximg_wli(fdf->img, ft_xli(ft_xdot(g_i, g_j), ft_xdot(600, 0)), 0x0FFFFFF);
+	ft_ximg_draw(fdf->img, fdf->win, 0, 0);
 	return (0);
 }
 
