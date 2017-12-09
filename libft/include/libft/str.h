@@ -28,6 +28,7 @@ extern void		*ft_memmove(void *dst, void const *src, size_t len);
 extern void		*ft_memrcpy(void *dst, void const *src, size_t n);
 extern void		*ft_memset(void *b, int c, size_t len);
 
+extern char		*ft_strbegw(char const *s1, char const *s2);
 extern char		*ft_strcat(char *dest, char const *src);
 extern char		*ft_strchr(char const *s, int c);
 extern char		*ft_strmchr(char const *s, char const *c);
@@ -45,7 +46,8 @@ extern char		*ft_strncpy(char *dest, char const *src, size_t n);
 extern size_t	ft_strnlen(char const *str, size_t size);
 extern char		*ft_strnstr(char const *str, char const *f, size_t l);
 extern char		*ft_strrchr(char const *s, int c);
+extern char		**ft_strsplit(char const *s, char c);
 extern char		*ft_strstr(char const *haystack, char const *needle);
-extern char		*ft_strbegw(char const *s1, char const *s2);
+extern size_t	ft_strword(char const *s, char c);
 
 #endif

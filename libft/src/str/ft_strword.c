@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strword.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/08 17:19:37 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/09 18:54:06 by alucas-          ###   ########.fr       */
+/*   Created: 2017/12/09 17:40:58 by alucas-           #+#    #+#             */
+/*   Updated: 2017/12/09 17:40:58 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft/str.h"
 
-# include <libft.h>
-
-#define FDF_WGT 600
-#define FDF_HGT 600
-
-typedef struct	s_fdf
+inline size_t	ft_strword(char const *s, char c)
 {
-	t_mlx		mlx;
-	t_xwin		*win;
-	t_ximg		*img;
-	int			co;
-	int			li;
-	int			*map;
-	int 		dx;
-	int 		dy;
-	int 		f;
-}				t_fdf;
+	size_t n;
 
-#endif
+	n = 0;
+	while (*s)
+		if (*s == c)
+			++s;
+		else if (++n && *++s)
+			while (*s != c)
+				++s;
+	return (n);
+}

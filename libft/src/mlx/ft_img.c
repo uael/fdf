@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 06:59:08 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/09 16:34:29 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/09 16:34:38 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ inline void		ft_ximg_draw(t_ximg *self, t_xwin *win, int x, int y)
 		self->mlx->err_hdl(self->mlx, MLX_EDRAW);
 }
 
-inline void		ft_ximg_wdot(t_ximg *self, t_xdot d, int color)
+inline void		ft_ximg_wdot(t_ximg *self, t_v2 d, int color)
 {
 	if (d.y >= self->height || d.x >= self->width || d.x < 0 || d.y < 0)
 		return ;

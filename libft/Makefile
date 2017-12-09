@@ -6,13 +6,13 @@
 #    By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:52:36 by alucas-           #+#    #+#              #
-#    Updated: 2017/12/09 16:14:49 by alucas-          ###   ########.fr        #
+#    Updated: 2017/12/09 18:34:16 by alucas-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
-CFLAGS = -Werror -Wextra -Wall -O2
+CFLAGS = -Werror -Wextra -Wall -g
 
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
@@ -22,7 +22,7 @@ INC_PATH = ./include/ $(addprefix $(3TH_PATH), include/)
 LNK_PATH = ./ $(3TH_PATH)
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
-3TH_NAME = ncurses
+3TH_NAME = m ncurses
 SRC_NAME = \
 	cty/ft_isalnum.c \
 	cty/ft_isalpha.c \
@@ -288,7 +288,9 @@ SRC_NAME = \
 	str/ft_strnlen.c \
 	str/ft_strnstr.c \
 	str/ft_strrchr.c \
+	str/ft_strsplit.c \
 	str/ft_strstr.c \
+	str/ft_strword.c \
 	trm/ft_caps.c \
 	trm/ft_trm.c \
 	trm/ft_trm_on.c \

@@ -12,7 +12,7 @@
 
 #include "libft/mlx/img.h"
 
-static inline void	ximg_wli_yl(t_ximg *self, int const *lens, t_xdot a,
+static inline void	ximg_wli_yl(t_ximg *self, int const *lens, t_v2 a,
 	int color)
 {
 	int	inc;
@@ -26,7 +26,7 @@ static inline void	ximg_wli_yl(t_ximg *self, int const *lens, t_xdot a,
 		j = 0x8000 + (a.x << 16);
 		while (a.y <= len)
 		{
-			ft_ximg_wdot(self, ft_xdot(j >> 16, a.y), color);
+			ft_ximg_wdot(self, ft_v2(j >> 16, a.y), color);
 			j += inc;
 			++a.y;
 		}
@@ -36,13 +36,13 @@ static inline void	ximg_wli_yl(t_ximg *self, int const *lens, t_xdot a,
 	j = 0x8000 + (a.x << 16);
 	while (a.y >= len)
 	{
-		ft_ximg_wdot(self, ft_xdot(j >> 16, a.y), color);
+		ft_ximg_wdot(self, ft_v2(j >> 16, a.y), color);
 		j -= inc;
 		--a.y;
 	}
 }
 
-static inline void	ximg_wli_xl(t_ximg *self, int const *lens, t_xdot a,
+static inline void	ximg_wli_xl(t_ximg *self, int const *lens, t_v2 a,
 	int color)
 {
 	int	inc;
@@ -56,7 +56,7 @@ static inline void	ximg_wli_xl(t_ximg *self, int const *lens, t_xdot a,
 		j = 0x8000 + (a.y << 16);
 		while (a.x <= len)
 		{
-			ft_ximg_wdot(self, ft_xdot(a.x, j >> 16), color);
+			ft_ximg_wdot(self, ft_v2(a.x, j >> 16), color);
 			j += inc;
 			++a.x;
 		}
@@ -66,7 +66,7 @@ static inline void	ximg_wli_xl(t_ximg *self, int const *lens, t_xdot a,
 	j = 0x8000 + (a.y << 16);
 	while (a.x >= len)
 	{
-		ft_ximg_wdot(self, ft_xdot(a.x, j >> 16), color);
+		ft_ximg_wdot(self, ft_v2(a.x, j >> 16), color);
 		j -= inc;
 		--a.x;
 	}

@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 06:40:19 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/09 08:23:01 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/09 17:43:56 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,28 @@
 
 # include "../math.h"
 
-typedef struct	s_xdot
+typedef struct	s_v2
 {
 	int 		x;
 	int 		y;
-}				t_xdot;
+}				t_v2;
+
+typedef struct	s_v3
+{
+	int 		x;
+	int 		y;
+	int 		z;
+}				t_v3;
 
 typedef struct	s_xli
 {
-	t_xdot		a;
-	t_xdot		b;
+	t_v2		a;
+	t_v2		b;
 }				t_xli;
 
-extern t_xdot	ft_xdot(int x, int y);
-extern t_xli	ft_xli(t_xdot origin, t_xdot target);
+extern t_v2		ft_v2(int x, int y);
+extern t_v3		ft_v3(int x, int y, int z);
+extern t_v2		ft_v3iso(int x, int y, int z);
+extern t_xli	ft_xli(t_v2 origin, t_v2 target);
 
 #endif

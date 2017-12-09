@@ -6,13 +6,13 @@
 #    By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:52:36 by alucas-           #+#    #+#              #
-#    Updated: 2017/12/09 16:14:49 by alucas-          ###   ########.fr        #
+#    Updated: 2017/12/09 18:17:21 by alucas-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 CC = gcc
-CFLAGS = -Werror -Wextra -Wall -O2
+CFLAGS = -Werror -Wextra -Wall -g
 
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
@@ -21,7 +21,7 @@ INC_PATH = ./include/
 LNK_PATH = ./ $(3TH_PATH)
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
-3TH_NAME = ft mlx
+3TH_NAME = ft m mlx
 SRC_NAME = \
 	fdf.c
 
