@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 17:19:00 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/09 19:13:00 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/09 19:34:28 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,7 @@ int			main(int ac, char **av)
 			return (fdf_err_hdl(NULL, errno));
 		ft_putf(2, N_FDF"x='%d', y='%d'\n", x, fdf.co);
 		if (x && x + 1 != fdf.co)
-		{
 			return (fdf_err_hdl(NULL, errno = EINVAL));
-		}
 		b = li + 1;
 	}
 	if (li && *++li)
