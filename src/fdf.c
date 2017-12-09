@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 17:19:00 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/09 19:34:28 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/09 19:55:22 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ static int	fdf_key(int key, t_fdf *fdf)
 				ft_ximg_wli(fdf->img, ft_xli(
 					ft_v3iso(fdf->dx + (x * fdf->f), fdf->dy + (y * fdf->f), fdf->map[(y * fdf->co) + x] * (fdf->f / 3)),
 					ft_v3iso(fdf->dx + ((x + 1) * fdf->f), fdf->dy + (y * fdf->f), fdf->map[(y * fdf->co) + (x + 1)] * (fdf->f / 3))
-				), fdf->map[(y * fdf->co) + x] != fdf->map[(y * fdf->co) + (x + 1)] ? 0x0FF0000 : 0x0FFFFFF);
+				), fdf->map[(y * fdf->co) + x] != fdf->map[(y * fdf->co) + (x + 1)] ? 0x0f38ff9 : 0x0FFFFFF);
 			if (y + 1 < fdf->li)
 				ft_ximg_wli(fdf->img, ft_xli(
 					ft_v3iso(fdf->dx + (x * fdf->f), fdf->dy + (y * fdf->f), fdf->map[(y * fdf->co) + x] * (fdf->f / 3)),
 					ft_v3iso(fdf->dx + (x * fdf->f), fdf->dy + ((y + 1) * fdf->f), fdf->map[((y + 1) * fdf->co) + x] * (fdf->f / 3))
-				), fdf->map[(y * fdf->co) + x] != fdf->map[((y + 1) * fdf->co) + x] ? 0x0FF0000 : 0x0FFFFFF);
+				), fdf->map[(y * fdf->co) + x] != fdf->map[((y + 1) * fdf->co) + x] ? 0x0f38ff9 : 0x0FFFFFF);
 		}
 	ft_ximg_draw(fdf->img, fdf->win, 0, 0);
 	return (0);
