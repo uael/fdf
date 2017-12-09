@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_geo.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/08 17:19:37 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/08 17:55:52 by alucas-          ###   ########.fr       */
+/*   Created: 2017/12/09 06:59:08 by alucas-           #+#    #+#             */
+/*   Updated: 2017/12/09 08:12:24 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft/mlx/geo.h"
 
-# include <libft.h>
-
-#define FDF_WGT 1000
-#define FDF_HGT 1000
-
-typedef struct	s_fdf
+inline t_xdot	ft_xdot(int x, int y)
 {
-	t_mlx		mlx;
-	t_xwin		*win;
-	t_ximg		*img;
-}				t_fdf;
+	return (t_xdot){x, y};
+}
 
-#endif
+inline t_xli	ft_xli(t_xdot origin, t_xdot target)
+{
+	return (t_xli){origin, target};
+}

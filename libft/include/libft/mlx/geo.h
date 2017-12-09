@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   libft/mlx/geo.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/08 17:19:37 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/08 17:55:52 by alucas-          ###   ########.fr       */
+/*   Created: 2017/12/09 06:40:19 by alucas-           #+#    #+#             */
+/*   Updated: 2017/12/09 08:23:01 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef LIBFT_MLX_GEO_H
+# define LIBFT_MLX_GEO_H
 
-# include <libft.h>
+# include "../math.h"
 
-#define FDF_WGT 1000
-#define FDF_HGT 1000
-
-typedef struct	s_fdf
+typedef struct	s_xdot
 {
-	t_mlx		mlx;
-	t_xwin		*win;
-	t_ximg		*img;
-}				t_fdf;
+	int 		x;
+	int 		y;
+}				t_xdot;
+
+typedef struct	s_xli
+{
+	t_xdot		a;
+	t_xdot		b;
+}				t_xli;
+
+extern t_xdot	ft_xdot(int x, int y);
+extern t_xli	ft_xli(t_xdot origin, t_xdot target);
 
 #endif

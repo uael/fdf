@@ -6,13 +6,13 @@
 #    By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:52:36 by alucas-           #+#    #+#              #
-#    Updated: 2017/12/08 18:08:43 by alucas-          ###   ########.fr        #
+#    Updated: 2017/12/09 09:06:00 by alucas-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
-CFLAGS = -Werror -Wextra -Wall -g
+CFLAGS = -Werror -Wextra -Wall -g -fsanitize=address
 
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
@@ -258,6 +258,11 @@ SRC_NAME = \
 	mem/ft_calloc.c \
 	mem/ft_malloc.c \
 	mem/ft_realloc.c \
+	mlx/ft_geo.c \
+	mlx/ft_img.c \
+	mlx/ft_img_wli.c \
+	mlx/ft_mlx.c \
+	mlx/ft_win.c \
 	str/ft_bzero.c \
 	str/ft_memccpy.c \
 	str/ft_memchr.c \

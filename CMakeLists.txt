@@ -23,6 +23,7 @@ add_executable(fdf ${fdf_HDR} ${fdf_HDRS} ${fdf_SRCS})
 set_property(TARGET fdf PROPERTY C_STANDARD 90)
 target_include_directories(fdf PUBLIC ${fdf_INC_DIR})
 target_link_libraries(fdf PUBLIC ft)
+add_definitions(-Wno-error=unused-command-line-argument)
 
 target_compile_definitions(fdf
     PRIVATE $<$<CONFIG:Debug>:DEBUG>$<$<CONFIG:Release>:NDEBUG>)
