@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 17:19:00 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/10 21:37:30 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/10 21:45:08 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ static int		fdf_err(t_mlx *mlx, int code)
 static int		fdf_move(int key, t_fdf *fdf)
 {
 	if (key == X_KEY_UP)
-		(fdf->m4 = ft_m4_mul(fdf->m4, ft_m4_transy(-10)));
+		(fdf->m4 = ft_m4_mul(fdf->m4, ft_m4_transy(-5)));
 	else if (key == X_KEY_DOWN)
-		(fdf->m4 = ft_m4_mul(fdf->m4, ft_m4_transy(10)));
+		(fdf->m4 = ft_m4_mul(fdf->m4, ft_m4_transy(5)));
 	else if (key == X_KEY_LEFT)
-		(fdf->m4 = ft_m4_mul(fdf->m4, ft_m4_transx(-10)));
+		(fdf->m4 = ft_m4_mul(fdf->m4, ft_m4_transx(-5)));
 	else if (key == X_KEY_RIGHT)
-		(fdf->m4 = ft_m4_mul(fdf->m4, ft_m4_transx(10)));
+		(fdf->m4 = ft_m4_mul(fdf->m4, ft_m4_transx(5)));
 	else if (key == X_KEY_PLUS)
 		(fdf->m4 = ft_m4_mul(fdf->m4, ft_m4_scale(ft_v3(1.1, 1.1, 1.1))));
 	else if (key == X_KEY_MINUS)
