@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 17:19:00 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/10 21:35:22 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/10 21:37:30 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ static int		*fdf_parse(t_fdf *f, t_dstr s, t_vi32 *map)
 	int		x;
 	char	*b;
 
-	!(b = s.buf) && fdf_err(NULL, EINVAL);
+	(!(b = s.buf) || !*b) && fdf_err(NULL, EINVAL);
 	(f->co = (int)ft_strword(b, ' ', '\n')) ? 0 : fdf_err(NULL, EINVAL);
 	f->l = 0;
 	ft_vi32_ctor(map);
