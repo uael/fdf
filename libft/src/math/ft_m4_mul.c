@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft/mlx.h                                        :+:      :+:    :+:   */
+/*   ft_m4_mul.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/09 06:38:53 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/09 08:13:35 by alucas-          ###   ########.fr       */
+/*   Created: 2017/11/07 09:52:30 by alucas-           #+#    #+#             */
+/*   Updated: 2017/12/10 11:55:17 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_MLX_H
-# define LIBFT_MLX_H
+#include "libft/math/m4.h"
+#include "libft/lib.h"
+#include "libft/str.h"
 
-# include "mlx/hook.h"
-# include "mlx/img.h"
-# include "mlx/mlx.h"
-# include "mlx/win.h"
+inline t_m4		ft_m4_mul(t_m4 a, t_m4 b)
+{
+	t_m4	m;
+	int		i;
+	int		j;
+	int		k;
+	float	sum;
 
-#endif
+	FT_INIT(&m, t_m4);
+	i = -1;
+	while (++i < 4 && (j = -1))
+		while (++j < 4 && (k = -1))
+		{
+			sum = 0;
+			while (++k < 4)
+				sum += a.m[k][j] * b.m[i][k];
+			m.m[i][j] = sum;
+		}
+	return (m);
+}

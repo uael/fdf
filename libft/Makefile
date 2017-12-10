@@ -6,7 +6,7 @@
 #    By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:52:36 by alucas-           #+#    #+#              #
-#    Updated: 2017/12/10 10:18:52 by alucas-          ###   ########.fr        #
+#    Updated: 2017/12/10 11:16:58 by alucas-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -251,14 +251,19 @@ SRC_NAME = \
 	lib/ft_strerr.c \
 	math/ft_imax.c \
 	math/ft_imin.c \
+	math/ft_m4.c \
+	math/ft_m4_mul.c \
+	math/ft_m4_rot.c \
+	math/ft_m4_trans.c \
 	math/ft_pow.c \
 	math/ft_pow2_next.c \
 	math/ft_umax.c \
 	math/ft_umin.c \
+	math/ft_v3.c \
+	math/ft_v3_nor.c \
 	mem/ft_calloc.c \
 	mem/ft_malloc.c \
 	mem/ft_realloc.c \
-	mlx/ft_geo.c \
 	mlx/ft_img.c \
 	mlx/ft_img_wli.c \
 	mlx/ft_mlx.c \

@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 06:40:19 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/10 10:18:52 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/10 11:15:13 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 # include <mlx.h>
 
-# include "geo.h"
 # include "../lib.h"
 # include "../ds.h"
 # include "../io.h"
 # include "../fs.h"
+# include "../math.h"
 
 typedef struct	s_mlx t_mlx;
 typedef struct	s_xwin t_xwin;
@@ -40,7 +40,7 @@ extern t_ximg	*ft_ximg(t_mlx *mlx, int width, int height);
 extern void		ft_ximg_dtor(t_ximg *self);
 extern void		ft_ximg_clear(t_ximg *self);
 extern void		ft_ximg_draw(t_ximg *self, t_xwin *win, int x, int y);
-extern void		ft_ximg_wdot(t_ximg *self, t_v2 d, int color);
-extern void		ft_ximg_wli(t_ximg *self, t_xli li, int color);
+extern void		ft_ximg_wdot(t_ximg *self, t_v3 d, int color);
+extern void		ft_ximg_wli(t_ximg *self, t_v3 o, t_v3 t, int color);
 
 #endif
