@@ -13,7 +13,7 @@
 #ifndef LIBFT_MATH_V3_H
 # define LIBFT_MATH_V3_H
 
-#include <math.h>
+# include <math.h>
 
 typedef struct	s_v3
 {

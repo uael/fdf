@@ -19,7 +19,7 @@ inline char	**ft_strsplit(char const *s, char c)
 	char		**r;
 	char		**ptr;
 
-	nw = ft_strword(s, c);
+	nw = ft_strword(s, c, '\0');
 	if (!(r = malloc((nw + 1) * sizeof(char *))))
 		return (NULL);
 	ptr = r;

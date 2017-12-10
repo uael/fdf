@@ -16,12 +16,12 @@
 # include "win.h"
 # include "img.h"
 
-# define MLX_ENMLX 1
-# define MLX_ENWIN 2
-# define MLX_ENIMG 3
-# define MLX_EAIMG 4
-# define MLX_EDRAW 5
-# define MLX_ECWIN 6
+# define MLX_ENMLX (-1)
+# define MLX_ENWIN (-2)
+# define MLX_ENIMG (-3)
+# define MLX_EAIMG (-4)
+# define MLX_EDRAW (-5)
+# define MLX_ECWIN (-6)
 
 struct			s_mlx
 {
