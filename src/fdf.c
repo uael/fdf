@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 17:19:00 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/10 17:43:05 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/10 18:04:47 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,14 @@ static int	fdf_key(int key, t_fdf *fdf)
 			t_v3 v;
 
 			v = fdf_to_screen(fdf, ft_m4_apply(fdf->m,
-				ft_v3((x - (fdf->co / 2)) * 20, (y - (fdf->li / 2)) * 20,
+				ft_v3((x - (fdf->co / 2)) * 10, (y - (fdf->li / 2)) * 10,
 					MAT(fdf->map, x, y, fdf->co))));
 			ft_putf(2, "<%f, %f, %f>\n", v.x, v.y, v.z);
 			if (x + 1 < fdf->co)
 				ft_ximg_wli(
 					fdf->img, v,
 					fdf_to_screen(fdf, ft_m4_apply(fdf->m,
-						ft_v3((x + 1 - (fdf->co / 2)) * 20, (y - (fdf->li / 2)) * 20,
+						ft_v3((x + 1 - (fdf->co / 2)) * 10, (y - (fdf->li / 2)) * 10,
 							MAT(fdf->map, x + 1, y, fdf->co)))),
 					0x0FFFFFF
 				);
@@ -108,7 +108,7 @@ static int	fdf_key(int key, t_fdf *fdf)
 				ft_ximg_wli(
 					fdf->img, v,
 					fdf_to_screen(fdf, ft_m4_apply(fdf->m,
-						ft_v3((x - (fdf->co / 2)) * 20, (y + 1 - (fdf->li / 2)) * 20,
+						ft_v3((x - (fdf->co / 2)) * 10, (y + 1 - (fdf->li / 2)) * 10,
 							MAT(fdf->map, x, y + 1, fdf->co)))),
 					0x0FFFFFF
 				);
@@ -172,7 +172,7 @@ int			main(int ac, char **av)
 	if (li && *++li)
 		return (fdf_err_hdl(NULL, errno = EINVAL));
 	fdf.map = map.buf;
-	fdf.m = ft_m4_mul(ft_m4_trans(ft_v3(FDF_WGT / 2, FDF_HGT / 2, 0)), ft_m4_scale(ft_v3(1, 1, 1)));
+	fdf.m = ft_m4_mul(ft_m4_trans(ft_v3(FDF_WGT / 2, FDF_HGT / 2, 0)), ft_m4_scale(ft_v3(10, 10, 10)));
 	ft_mlx_ctor(&fdf.mlx, (t_err_hdl)fdf_err_hdl);
 	fdf.win = ft_xwin(&fdf.mlx, FDF_WGT, FDF_HGT, "Wireframe @42");
 	fdf.img = ft_ximg(&fdf.mlx, FDF_WGT, FDF_HGT);
