@@ -32,6 +32,6 @@ inline t_v3		ft_v3_nor(t_v3 v)
 	float len;
 
 	if ((len = ft_v3_len(v)) > 0)
-		return ft_v3(v.x / len, v.y / len, v.z / len);
-	return ft_v3(0, 0, 0);
+		return (ft_v3(v.x / len, v.y / len, v.z / len));
+	return (ft_v3(0, 0, 0));
 }

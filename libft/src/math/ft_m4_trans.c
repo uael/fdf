@@ -18,8 +18,7 @@ inline t_m4		ft_m4_transx(float s)
 		ft_m1(1, 0, 0, s),
 		ft_m1(0, 1, 0, 0),
 		ft_m1(0, 0, 1, 0),
-		ft_m1(0, 0, 0, 1)
-	));
+		ft_m1(0, 0, 0, 1)));
 }
 
 inline t_m4		ft_m4_transy(float s)
@@ -28,8 +27,7 @@ inline t_m4		ft_m4_transy(float s)
 		ft_m1(1, 0, 0, 0),
 		ft_m1(0, 1, 0, s),
 		ft_m1(0, 0, 1, 0),
-		ft_m1(0, 0, 0, 1)
-	));
+		ft_m1(0, 0, 0, 1)));
 }
 
 inline t_m4		ft_m4_transz(float s)
@@ -38,6 +36,5 @@ inline t_m4		ft_m4_transz(float s)
 		ft_m1(1, 0, 0, 0),
 		ft_m1(0, 1, 0, 0),
 		ft_m1(0, 0, 1, s),
-		ft_m1(0, 0, 0, 1)
-	));
+		ft_m1(0, 0, 0, 1)));
 }

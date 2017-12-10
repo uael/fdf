@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 17:19:00 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/10 21:10:18 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/10 21:30:46 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #define N_FDF COLOR_RED COLOR_BOLD "fdf: " COLOR_RESET
 #define IDX(X, Y, CO) (((Y) * (CO)) + (X))
 #define MAT(M, X, Y, CO) ((M)[IDX(X, Y, CO)])
+#define SIGN(C) ((C) == '-' || (C) == '+')
 
 static int		fdf_err(t_mlx *mlx, int code)
 {
@@ -114,7 +115,7 @@ int				*fdf_parse(t_fdf *f, t_dstr s, t_vi32 *map)
 			(*b == '\n' && x != f->co) ? fdf_err(NULL, EINVAL) : 0;
 			(*b++ == '\n') ? x = 0 : 0;
 		}
-		else if (ft_isdigit(*b) || (*b == '-' && (ft_isdigit(*(b + 1)))))
+		else if (ft_isdigit(*b) || (SIGN(*b) && (ft_isdigit(*(b + 1)))))
 		{
 			++x;
 			ft_vi32_pushc(map, (int)ft_atoi(b++)) ? 0 : fdf_err(NULL, errno);
