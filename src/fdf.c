@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 17:19:00 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/10 21:31:32 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/10 21:35:22 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static void		fdf_key(int key, t_fdf *f)
 	ft_ximg_draw(f->img, f->win, 0, 0);
 }
 
-int				*fdf_parse(t_fdf *f, t_dstr s, t_vi32 *map)
+static int		*fdf_parse(t_fdf *f, t_dstr s, t_vi32 *map)
 {
 	int		x;
 	char	*b;
