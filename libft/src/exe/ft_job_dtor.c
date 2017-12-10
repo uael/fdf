@@ -12,12 +12,12 @@
 
 #include "libft/exe.h"
 
-inline void	ft_job_free_data(t_job *self)
+inline void		ft_job_free_data(t_job *self)
 {
 	free(self->data);
 }
 
-inline void ft_job_dtor(t_job *self)
+inline void		ft_job_dtor(t_job *self)
 {
 	if (!self->av)
 		return ;
