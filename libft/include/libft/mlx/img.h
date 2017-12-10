@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 06:40:19 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/10 21:15:04 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/10 21:15:38 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ typedef struct s_xwin	t_xwin;
 
 typedef struct			s_ximg
 {
-	t_mlx		*mlx;
-	void		*ptr;
-	int 		width;
-	int 		height;
-	char 		*li;
-	int 		bpp;
-	int 		lisz;
-	int 		endian;
+	t_mlx				*mlx;
+	void				*ptr;
+	int					width;
+	int					height;
+	char				*li;
+	int					bpp;
+	int					lisz;
+	int					endian;
 }						t_ximg;
 
 extern t_ximg			*ft_ximg(t_mlx *mlx, int width, int height);
