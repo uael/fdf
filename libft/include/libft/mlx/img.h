@@ -40,7 +40,7 @@ extern t_ximg	*ft_ximg(t_mlx *mlx, int width, int height);
 extern void		ft_ximg_dtor(t_ximg *self);
 extern void		ft_ximg_clear(t_ximg *self);
 extern void		ft_ximg_draw(t_ximg *self, t_xwin *win, int x, int y);
-extern void		ft_ximg_wdot(t_ximg *self, t_v3 d, int color);
+extern void		ft_ximg_wdot(t_ximg *self, int x, int y, int color);
 extern void		ft_ximg_wli(t_ximg *self, t_v3 o, t_v3 t, int color);
 
 #endif

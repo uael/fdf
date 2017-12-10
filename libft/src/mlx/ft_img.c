@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 06:59:08 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/10 10:17:31 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/10 17:59:12 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ inline void		ft_ximg_dtor(t_ximg *self)
 inline void		ft_ximg_clear(t_ximg *self)
 {
 	ft_memset(self->li, 0,
-		(size_t)((self->height * self->lisz) + (self->width * (self->bpp / 8)))
-	);
+		(size_t)((self->height * self->lisz) +
+			(self->width * (self->bpp / 8))));
 }
 
 inline void		ft_ximg_draw(t_ximg *self, t_xwin *win, int x, int y)
@@ -59,10 +59,10 @@ inline void		ft_ximg_draw(t_ximg *self, t_xwin *win, int x, int y)
 		self->mlx->err_hdl(self->mlx, MLX_EDRAW);
 }
 
-inline void		ft_ximg_wdot(t_ximg *self, t_v3 d, int color)
+inline void		ft_ximg_wdot(t_ximg *self, int x, int y, int color)
 {
-	if (d.y >= self->height || d.x >= self->width || d.x < 0 || d.y < 0)
+	if (y >= self->height || x >= self->width || x < 0 || y < 0)
 		return ;
-	*(int *)(self->li + (int)(d.y * self->lisz) + (int)(d.x * (self->bpp / 8)))
-		= color;
+	*(int *)(self->li + (y * self->lisz) +
+		(x * (self->bpp / 8))) = color;
 }

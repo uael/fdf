@@ -6,7 +6,7 @@
 /*   By: alucas- <alucas-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 17:19:00 by alucas-           #+#    #+#             */
-/*   Updated: 2017/12/10 16:33:24 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/12/10 17:43:05 by alucas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,32 @@ static int	fdf_err_hdl(t_mlx *mlx, int code)
 	exit(code);
 }
 
+#define IDX(X, Y, CO) (((Y) * (CO)) + (X))
+#define MAT(M, X, Y, CO) ((M)[IDX(X, Y, CO)])
+
+t_m4 ft_m4_ortho(float left, float right, float bottom, float top, float back, float front) {
+	float l = left, r = right, b = bottom, t = top, n = front, f = back;
+	float tx = -(r + l) / (r - l);
+	float ty = -(t + b) / (t - b);
+	float tz = -(f + n) / (f - n);
+
+	return ft_m4(
+		ft_m1(2 / (r - l), 0, 0, tx),
+		ft_m1(0, 2 / (t - b), 0, ty),
+		ft_m1(0, 0, 2 / (f - n), tz),
+		ft_m1(0, 0, 0, 1)
+	);
+}
+
+static t_v3	fdf_to_screen(t_fdf *fdf, t_v3 v)
+{
+	(void)fdf;
+	return (ft_m4_apply(ft_m4_ortho(
+		-1000, 1000,
+		-500, 500,
+		-20, -100), v));
+}
+
 static int	fdf_key(int key, t_fdf *fdf)
 {
 	int x;
@@ -36,13 +62,13 @@ static int	fdf_key(int key, t_fdf *fdf)
 	if (key == X_KEY_ESC)
 		return (fdf_err_hdl(&fdf->mlx, 0));
 	else if (key == X_KEY_UP)
-		(fdf->m = ft_m4_mul(fdf->m, ft_m4_transy(-1)));
+		(fdf->m = ft_m4_mul(fdf->m, ft_m4_transy(-10)));
 	else if (key == X_KEY_DOWN)
-		(fdf->m = ft_m4_mul(fdf->m, ft_m4_transy(1)));
+		(fdf->m = ft_m4_mul(fdf->m, ft_m4_transy(10)));
 	else if (key == X_KEY_LEFT)
-		(fdf->m = ft_m4_mul(fdf->m, ft_m4_transx(-1)));
+		(fdf->m = ft_m4_mul(fdf->m, ft_m4_transx(-10)));
 	else if (key == X_KEY_RIGHT)
-		(fdf->m = ft_m4_mul(fdf->m, ft_m4_transx(1)));
+		(fdf->m = ft_m4_mul(fdf->m, ft_m4_transx(10)));
 	else if (key == X_KEY_PLUS)
 		(fdf->m = ft_m4_mul(fdf->m, ft_m4_scale(ft_v3(1.1, 1.1, 1.1))));
 	else if (key == X_KEY_MINUS)
@@ -66,23 +92,24 @@ static int	fdf_key(int key, t_fdf *fdf)
 		{
 			t_v3 v;
 
-			v = ft_m4_apply(fdf->m,
-				ft_v3(x * 20, y * 20, fdf->map[(y * fdf->co) + x])
-			);
+			v = fdf_to_screen(fdf, ft_m4_apply(fdf->m,
+				ft_v3((x - (fdf->co / 2)) * 20, (y - (fdf->li / 2)) * 20,
+					MAT(fdf->map, x, y, fdf->co))));
+			ft_putf(2, "<%f, %f, %f>\n", v.x, v.y, v.z);
 			if (x + 1 < fdf->co)
 				ft_ximg_wli(
 					fdf->img, v,
-					ft_m4_apply(fdf->m,
-						ft_v3((x + 1) * 20, y * 20, fdf->map[(y * fdf->co) + (x + 1)])
-					),
+					fdf_to_screen(fdf, ft_m4_apply(fdf->m,
+						ft_v3((x + 1 - (fdf->co / 2)) * 20, (y - (fdf->li / 2)) * 20,
+							MAT(fdf->map, x + 1, y, fdf->co)))),
 					0x0FFFFFF
 				);
 			if (y + 1 < fdf->li)
 				ft_ximg_wli(
 					fdf->img, v,
-					ft_m4_apply(fdf->m,
-						ft_v3(x * 20, (y + 1) * 20, fdf->map[((y + 1) * fdf->co) + x])
-					),
+					fdf_to_screen(fdf, ft_m4_apply(fdf->m,
+						ft_v3((x - (fdf->co / 2)) * 20, (y + 1 - (fdf->li / 2)) * 20,
+							MAT(fdf->map, x, y + 1, fdf->co)))),
 					0x0FFFFFF
 				);
 		}
